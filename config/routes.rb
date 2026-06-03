@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "home/index"
+  root "home#index"
   resources :item_vendas
   resources :vendas
   resources :clientes

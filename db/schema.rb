@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_29_011943) do
+ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
+  create_table "atendentes", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "nome"
+    t.string "cpf"
+    t.string "telefone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "clientes", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
@@ -19,22 +27,10 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_29_011943) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "item_vendas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "venda_id", null: false
-    t.bigint "produto_id", null: false
-    t.integer "quantidade"
-    t.decimal "preco_unitario", precision: 10
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["produto_id"], name: "index_item_vendas_on_produto_id"
-    t.index ["venda_id"], name: "index_item_vendas_on_venda_id"
-  end
-
-  create_table "produtos", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "medicamentos", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "nome"
-    t.decimal "preco", precision: 10
-    t.integer "quantidade"
-    t.string "codigo"
+    t.string "preco"
+    t.string "estoque"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,10 +40,11 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_29_011943) do
     t.decimal "total", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "atendente_id", null: false
+    t.index ["atendente_id"], name: "index_vendas_on_atendente_id"
     t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
   end
 
-  add_foreign_key "item_vendas", "produtos"
-  add_foreign_key "item_vendas", "vendas"
+  add_foreign_key "vendas", "atendentes"
   add_foreign_key "vendas", "clientes"
 end

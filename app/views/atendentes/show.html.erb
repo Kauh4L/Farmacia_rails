@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @atendente %>
+
+  <strong>Nome: </strong>
+  <%= @atendente.nome %>
+  <br>
+
+  <strong>Cpf: </strong>
+  <%= @atendente.cpf%>
+  <br>
+
+  <strong>Telefone: </strong>
+  <%= @atendente.telefone %>
+  <br>
+
+
+<div>
+  <%= link_to "Edit this atendente", edit_atendente_path(@atendente) %> |
+  <%= link_to "Back to atendentes", atendentes_path %>
+
+  <%= button_to "Destroy this atendente", @atendente, method: :delete %>
+</div>

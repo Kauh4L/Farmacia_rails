@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :medicamentos
+  resources :atendentes
   get "home/index"
   root "home#index"
-  resources :item_vendas
   resources :vendas
   resources :clientes
-  resources :produtos
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

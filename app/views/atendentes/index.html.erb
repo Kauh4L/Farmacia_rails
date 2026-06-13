@@ -3,41 +3,11 @@
 <% content_for :title, "Atendentes" %>
 
 
-<h1>PÁGINA DE ATENDENTES</h1>
-
-<div>TABELA DE ATENDENTES</div>
-
-<div id="atendentes">
-  <% @atendentes.each do |atendente| %>
-    <%= render atendente %>
-
-    <br>
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Cpf</th>
-        <th>Telefone</th>
-      </tr>
-
-      <tr>
-        <td><%= atendente.id %></td>
-        <td>....</td>
-        <td>....</td>
-        <td>....</td>
-      </tr>
-    </table>
-    
-
-    <%= link_to "Mostrar", atendente %> |
-
-    <%= link_to "Destroy", atendente, method: :delete, data: { confirm: "Are you sure?" } %>
-  <br>
-  
-  <% end %>
-</div>
+<h1>TELA INICAL</h1>
 
 <br>
-<%= link_to "New atendente", new_atendente_path %>
-
+<%= link_to "Lista de Atendentes", lista_atendente_path %>
+<br>
+<%= link_to "Cadastrar Atendente", new_atendente_path %>
+<br>
 <%= link_to("Voltar", root_path) %>

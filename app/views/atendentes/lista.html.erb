@@ -1,0 +1,7 @@
+<h1>Lista de Atendentes</h1>
+
+<% @atendentes.each do |a| %>
+  <p>
+    <%= a.nome %> - <%= a.cpf %> - <%= a.telefone %>
+  </p>
+<% end %>

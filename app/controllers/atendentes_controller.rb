@@ -8,6 +8,10 @@ class AtendentesController < ApplicationController
 
   # GET /atendentes/1 or /atendentes/1.json
   def show
+  end 
+
+  def lista
+  @atendentes = Atendente.all
   end
 
   # GET /atendentes/new
@@ -67,4 +71,6 @@ class AtendentesController < ApplicationController
     def atendente_params
       params.require(:atendente).permit(:nome, :cpf, :telefone)
     end
+
 end
+

@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
-  create_table "atendentes", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "atendentes", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
     t.string "telefone"
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "clientes", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "clientes", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
     t.string "telefone"
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "medicamentos", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "medicamentos", force: :cascade do |t|
     t.string "nome"
     t.string "preco"
     t.string "estoque"
@@ -35,12 +35,12 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "vendas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "cliente_id", null: false
-    t.decimal "total", precision: 10
+  create_table "vendas", force: :cascade do |t|
+    t.integer "cliente_id", null: false
+    t.decimal "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "atendente_id", null: false
+    t.integer "atendente_id", null: false
     t.index ["atendente_id"], name: "index_vendas_on_atendente_id"
     t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
   end

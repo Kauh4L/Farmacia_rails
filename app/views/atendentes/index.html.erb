@@ -31,8 +31,6 @@
 
     <%= link_to "Mostrar", atendente %> |
 
-    <%= link_to "Edit", edit_atendente_path(atendente) %> |
-
     <%= link_to "Destroy", atendente, method: :delete, data: { confirm: "Are you sure?" } %>
   <br>
   
@@ -41,3 +39,5 @@
 
 <br>
 <%= link_to "New atendente", new_atendente_path %>
+
+<%= link_to("Voltar", root_path) %>

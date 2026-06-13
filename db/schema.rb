@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
+ActiveRecord::Schema[7.2].define(version: 2026_06_13_173846) do
   create_table "atendentes", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
@@ -27,6 +27,18 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_vendas", force: :cascade do |t|
+    t.integer "venda_id", null: false
+    t.integer "medicamento_id", null: false
+    t.integer "quantidade_id", null: false
+    t.integer "quantidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medicamento_id"], name: "index_item_vendas_on_medicamento_id"
+    t.index ["quantidade_id"], name: "index_item_vendas_on_quantidade_id"
+    t.index ["venda_id"], name: "index_item_vendas_on_venda_id"
+  end
+
   create_table "medicamentos", force: :cascade do |t|
     t.string "nome"
     t.string "preco"
@@ -36,15 +48,19 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_05_013902) do
   end
 
   create_table "vendas", force: :cascade do |t|
-    t.integer "cliente_id", null: false
     t.decimal "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "atendente_id", null: false
+    t.integer "medicamento_id", null: false
+    t.integer "quantidade"
     t.index ["atendente_id"], name: "index_vendas_on_atendente_id"
-    t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
+    t.index ["medicamento_id"], name: "index_vendas_on_medicamento_id"
   end
 
+  add_foreign_key "item_vendas", "medicamentos"
+  add_foreign_key "item_vendas", "quantidades"
+  add_foreign_key "item_vendas", "vendas"
   add_foreign_key "vendas", "atendentes"
-  add_foreign_key "vendas", "clientes"
+  add_foreign_key "vendas", "medicamentos"
 end

@@ -11,17 +11,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :cliente_id, style: "display: block" %>
-    <%= form.text_field :cliente_id %>
+  <div> 
+    <%= form.label :atendente_id, style: "display: block" %>
+    <%= form.collection_select :atendente_id, Atendente.all, :id, :nome %>
   </div>
 
   <div>
-    <%= form.label :total, style: "display: block" %>
-    <%= form.text_field :total %>
+    <%= form.label :medicamento_id, style: "display: block" %>
+    <%= form.collection_select :medicamento_id, Medicamento.all, :id, :nome %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :quantidade, style: "display: block" %>
+    <%= form.text_field :quantidade  %>
+  </div>
+
+  <div>
+    <%= form.submit "FINALIZAR VENDA" %>
+
   </div>
 <% end %>

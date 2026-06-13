@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venda: one
+  medicamento: one
+  quantidade: one
+  quantidade: 1
+
+two:
+  venda: two
+  medicamento: two
+  quantidade: two
+  quantidade: 1

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :medicamentos
+  resources :item_vendas
   resources :atendentes
+
   get "home/index"
   root "home#index"
+
   resources :vendas
   resources :clientes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

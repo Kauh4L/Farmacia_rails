@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   resources :medicamentos
   
+  get "/atendentes/lista", to: "atendentes#lista", as: "lista_atendente"
   resources :atendentes
 
   get "home/index"
   root "home#index"
 
-  get "atendentes/lista", to: "atendentes#lista", as: "lista_atendente"
 
   resources :vendas
   resources :clientes

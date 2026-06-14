@@ -2,6 +2,9 @@
 
 <% @atendentes.each do |a| %>
   <p>
-    <%= a.nome %> - <%= a.cpf %> - <%= a.telefone %>
+    <%= a.id %> - <%= a.nome %> - <%= a.cpf %> - <%= a.telefone %>
   </p>
+
 <% end %>
+
+<%= link_to "Voltar", atendentes_path %>

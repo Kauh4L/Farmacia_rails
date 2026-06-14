@@ -2,18 +2,18 @@
 
 <% content_for :title, "Medicamentos" %>
 
-<h1>Medicamentos</h1>
+<h1>MEDICAMENTOS</h1>
 
 <div id="medicamentos">
   <% @medicamentos.each do |medicamento| %>
     <%= render medicamento %>
     <p>
-      <%= link_to "Show this medicamento", medicamento %>
+      <%= link_to "Mostrar Medicamento", medicamento %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New medicamento", new_medicamento_path %>
+<%= link_to "Novo Medicamento", new_medicamento_path %>
 
 <a href="../">Voltar</a>
 

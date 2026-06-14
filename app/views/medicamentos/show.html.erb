@@ -3,8 +3,8 @@
 <%= render @medicamento %>
 
 <div>
-  <%= link_to "Edit this medicamento", edit_medicamento_path(@medicamento) %> |
-  <%= link_to "Back to medicamentos", medicamentos_path %>
+  <%= link_to "Editar Medicamento", edit_medicamento_path(@medicamento) %> |
+  <%= link_to "Voltar", medicamentos_path %>
 
-  <%= button_to "Destroy this medicamento", @medicamento, method: :delete %>
+  <%= button_to "Deletar Medicamento", @medicamento, method: :delete %>
 </div>

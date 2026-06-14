@@ -2,9 +2,9 @@
 
 <% @atendentes.each do |a| %>
   <p>
-    <%= a.id %> - <%= a.nome %> - <%= a.cpf %> - <%= a.telefone %>
+    Id: <%= a.id %> - Nome: <%= a.nome %> - Cpf: <%= a.cpf %> - Telefone: <%= a.telefone %>
   </p>
+  <%= link_to "Deletar Atendente", a, method: :delete %>
+  <%= link_to "Editar Atendente", edit_atendente_path(a) %>
 
 <% end %>
-
-<%= link_to "Voltar", atendentes_path %>

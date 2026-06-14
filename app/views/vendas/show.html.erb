@@ -2,9 +2,22 @@
 
 <%= render @venda %>
 
-<div>
-  <%= link_to "Edit this venda", edit_venda_path(@venda) %> |
-  <%= link_to "Back to vendas", vendas_path %>
+  <p>
+    <strong>Atendente:</strong>
+    <%= @venda.atendente_id %>
+  </p>
 
-  <%= button_to "Destroy this venda", @venda, method: :delete %>
+  <p>
+    <strong>Total:</strong>
+    <%= @venda.total %>
+  </p>
+
+<div>
+  <%= link_to "Editar Venda", edit_venda_path(@venda) %> |
+  <%= link_to "Voltar", vendas_path %>
+
+  <%= button_to "Deletar Venda", @venda, method: :delete %>
 </div>
+
+
+

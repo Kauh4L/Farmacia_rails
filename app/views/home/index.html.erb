@@ -1,11 +1,20 @@
-<h1>TELA INICIAL</h1>
 
-<DIV>
-  <%= link_to "ATENDENTES", atendentes_path %>
-</DIV>
+<div class="container">
+  <h1 class="text-center">Sistema da Farmácia</h1>
 
-<div> <%= link_to "VENDAS", vendas_path %></div>
-<div> <%= link_to "MEDICAMENTOS", medicamentos_path %></div>
+   <div class="row mt-5 text-center justify-content-center">
+    <p>SELECIONE A OPÇÃO DESEJADA:</p>
 
+    <div class="col mt-5">
+      <DIV> <%= link_to "ATENDENTES", atendentes_path, class: "btn btn-primary w-75" %> </DIV>
+    </div>
+    <div class="col mt-5">  
+      <div> <%= link_to "VENDAS", vendas_path, class: "btn btn-primary w-75" %></div>
+    </div>
+    <div class="col mt-5">
+      <div> <%= link_to "MEDICAMENTOS", medicamentos_path, class: "btn btn-primary w-75" %></div>
+    </div>
 
-<p>Find me in app/views/home/index.html.erb</p>
+  </div>
+
+</div>

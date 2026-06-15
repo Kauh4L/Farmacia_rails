@@ -1,23 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @atendente %>
-
-  <strong>Nome: </strong>
-  <%= @atendente.nome %>
-  <br>
-
-  <strong>Cpf: </strong>
-  <%= @atendente.cpf%>
-  <br>
-
-  <strong>Telefone: </strong>
-  <%= @atendente.telefone %>
-  <br>
-
-
-<div>
-  <%= link_to "Editar Atendente", edit_atendente_path(@atendente) %> |
-  <%= link_to "Voltar Atendente", atendentes_path %>
-
-  <%= button_to "Deletar Atendente", @atendente, method: :delete %>
+<%- model_class = Atendente -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
+
+<dl class="row">
+  <dt class="col-sm-2"><%= model_class.human_attribute_name(:nome) %>:</dt>
+  <dd class="col-sm-10"><%= @atendente.nome %></dd>
+  <dt class="col-sm-2"><%= model_class.human_attribute_name(:cpf) %>:</dt>
+  <dd class="col-sm-10"><%= @atendente.cpf %></dd>
+  <dt class="col-sm-2"><%= model_class.human_attribute_name(:telefone) %>:</dt>
+  <dd class="col-sm-10"><%= @atendente.telefone %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              atendentes_path, :class => 'btn btn-secondary' %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_atendente_path(@atendente), :class => 'btn btn-secondary' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              atendente_path(@atendente),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

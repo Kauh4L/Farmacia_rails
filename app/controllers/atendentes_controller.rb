@@ -1,6 +1,6 @@
 class AtendentesController < ApplicationController
   before_action :set_atendente, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+ 
   # GET /atendentes or /atendentes.json
   def index
     @atendentes = Atendente.all

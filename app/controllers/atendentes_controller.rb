@@ -9,8 +9,9 @@ class AtendentesController < ApplicationController
 
   # GET /atendentes/1 or /atendentes/1.json
   def show
-  end 
-  
+    
+  end
+
 # Para gerar a lista PDF 
 def download
   @atendentes = Atendente.all
@@ -99,4 +100,3 @@ end
     end
 
 end
-

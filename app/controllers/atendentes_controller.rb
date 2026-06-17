@@ -4,6 +4,7 @@ class AtendentesController < ApplicationController
   # GET /atendentes or /atendentes.json
   def index
     @atendentes = Atendente.all
+    @atendentes = @atendentes.page(params[:page]).per(5) # Paginação com Kaminari
   end
 
   # GET /atendentes/1 or /atendentes/1.json

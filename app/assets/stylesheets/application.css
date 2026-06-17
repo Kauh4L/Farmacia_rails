@@ -14,6 +14,11 @@
  *= require_self
  *= require bootstrap_and_overrides
  */
+
+ body {
+  font-family: 'Poppins', sans-serif;
+}
+
  body {
   background-color: #F5F4F0; 
 }

@@ -1,18 +1,19 @@
 
 <div class="container">
-  <h1 class="text-center">Sistema da Farmácia</h1>
+  <h1 class="text-center titulo-sistema">Sistema da Farmácia</h1>
 
-   <div class="row mt-5 text-center justify-content-center">
+   <div class="row mt-5 text-center justify-content-center fw-bold">
     <p>SELECIONE A OPÇÃO DESEJADA:</p>
-
-    <div class="col mt-5">
-      <DIV> <%= link_to "ATENDENTES", atendentes_path, class: "btn btn-primary w-75" %> </DIV>
+    <br>
+    <br>
+    <div class="col mt-2">
+      <DIV> <%= link_to "ATENDENTES", atendentes_path, class: "btn btn-farmacia w-75" %> </DIV>
     </div>
-    <div class="col mt-5">  
-      <div> <%= link_to "VENDAS", vendas_path, class: "btn btn-primary w-75" %></div>
+    <div class="col mt-2">  
+      <div> <%= link_to "VENDAS", vendas_path, class: "btn btn-farmacia w-75" %></div>
     </div>
-    <div class="col mt-5">
-      <div> <%= link_to "MEDICAMENTOS", medicamentos_path, class: "btn btn-primary w-75" %></div>
+    <div class="col mt-2">
+      <div> <%= link_to "MEDICAMENTOS", medicamentos_path, class: "btn btn-farmacia w-75" %></div>
     </div>
 
   </div>

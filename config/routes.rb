@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :medicamentos
+ 
+  get '/atendentes/download', to: 'atendentes#download', as: 'download_atendentes'
+  get '/vendas/download', to: 'vendas#download', as: 'download_vendas'
+  get '/medicamentos/download', to: 'medicamentos#download', as: 'download_medicamentos'
   
   get "/atendentes/lista", to: "atendentes#lista", as: "lista_atendente"
+  
   resources :atendentes
-
-  get "home/index"
-  root "home#index"
-  get '/download', to: 'atendentes#download', as: 'download'
-
+  resources :medicamentos
   resources :vendas
   resources :clientes
+ 
+  get "home/index"
+  root "home#index"
+  
+   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

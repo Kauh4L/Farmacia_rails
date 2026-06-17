@@ -1,32 +1,37 @@
-<%= form_with(model: medicamento) do |form| %>
-  <% if medicamento.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(medicamento.errors.count, "error") %> prohibited this medicamento from being saved:</h2>
+<%= form_for @medicamento, :html => { :class => "medicamento" } do |f| %>
 
-      <ul>
-        <% medicamento.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+  <% if @medicamento.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@medicamento.errors.count, "error") %> prohibited this medicamento from being saved:</h5>
+      <hr>
+      <ul class="mb-0">
+      <% @medicamento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+  <div class="mb-3">
+    <%= f.label :nome, :class => 'form-label' %>
+    <%= f.text_field :nome, :class => 'form-control' %>
+    <%=f.error_span(:nome) %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :preco, :class => 'form-label' %>
+    <%= f.text_field :preco, :class => 'form-control' %>
+    <%=f.error_span(:preco) %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :estoque, :class => 'form-label' %>
+    <%= f.text_field :estoque, :class => 'form-control' %>
+    <%=f.error_span(:estoque) %>
   </div>
 
-  <div>
-    <%= form.label :preco, style: "display: block" %>
-    <%= form.text_field :preco %>
+  <div class="mb-3">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              medicamentos_path, :class => 'btn btn-secondary' %>
   </div>
 
-  <div>
-    <%= form.label :estoque, style: "display: block" %>
-    <%= form.text_field :estoque %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

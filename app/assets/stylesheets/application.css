@@ -14,3 +14,87 @@
  *= require_self
  *= require bootstrap_and_overrides
  */
+ body {
+  background-color: #F5F4F0; 
+}
+
+.navbar-brand {
+  /* Altera a fonte para Poppins (se não carregar, usa a padrão do PC) */
+  font-family:'Inter', sans-serif;
+  
+  /* Altera o tamanho da fonte (32px deixa um tamanho de logo bem destacado) */
+  font-size: 25px;
+  
+  /* Deixa a fonte em negrito (700 é o peso do negrito) */
+  font-weight: 700;
+  
+  /* Remove aquele sublinhado feio que links costumam ter */
+  text-decoration: none;
+  
+  /* Define a cor do texto (troque pelo código da cor que quiser) */
+  color: #FFFFFF; 
+  
+  /* Dá um efeito suave caso você decida colocar uma cor diferente ao passar o mouse */
+  /* transition: color 0.3s ease; */
+}
+
+/* Opcional: muda de cor de leve quando passa o mouse por cima 
+.navbar-brand:hover {
+  color: #16a085; /* Um tom de verde água/saúde, por exemplo 
+}*/
+
+/* Altera a cor padrão de todos os links do menu */
+.navbar-nav .nav-link {
+  color:#A5C6E7 !important; 
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  font-weight: 700;
+}
+
+/* Altera a cor apenas quando você passa o mouse por cima (Hover) */
+.navbar-nav .nav-link:hover {
+  color: #16a028 !important; /* Muda para um verde água, por exemplo */
+}
+
+# definição fonte padrão
+body {
+  font-family: 'Poppins' -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /*
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333; /* Uma cor cinza escuro para o texto, que cansa menos os olhos que o preto puro */
+}
+
+.btn-farmacia {
+  background-color: #0D335A; /* Cor de fundo (Verde Saúde) */
+  color: #ffffff;             /* Cor do texto (Branco) */
+  border: 1px solid #0D335A;  /* Cor da borda */
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 500;
+  transition: all 0.3s ease;  /* Deixa a mudança de cor suave ao passar o mouse */
+}
+
+/* O que acontece quando passa o mouse por cima  */
+.btn-farmacia:hover {
+  background-color: #2C699E; /* Verde um pouco mais escuro 
+  border-color: #16a085;
+  color: #ffffff;*/
+}
+
+.titulo-sistema {
+
+  font-family: 'Inter', sans-serif;
+  /* Define o tamanho da fonte (ex: 42px deixa um tamanho grande e imponente) */
+  font-size: 42px;
+  
+  /* Define o peso da fonte (700 é o negrito bem marcante) */
+  font-weight: 600;
+  
+  /* Cor do texto (você pode usar a mesma paleta que escolheu para os botões!) 
+  color: #16a085; */
+  
+  /* Opcional: dá um espaço extra abaixo do título para não colar no conteúdo */
+  margin-top: 25px;
+  margin-bottom: 30px; 
+}

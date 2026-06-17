@@ -1,33 +1,47 @@
-<%= form_with(model: venda) do |form| %>
-  <% if venda.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(venda.errors.count, "error") %> prohibited this venda from being saved:</h2>
+<%= form_for @venda, :html => { :class => "venda" } do |f| %>
 
-      <ul>
-        <% venda.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+  <% if @venda.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@venda.errors.count, "error") %> prohibited this venda from being saved:</h5>
+      <hr>
+      <ul class="mb-0">
+      <% @venda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div> 
-    <%= form.label :atendente_id, style: "display: block" %>
-    <%= form.collection_select :atendente_id, Atendente.all, :id, :nome %>
+  <div class="mb-3">
+    <%= f.label :total, :class => 'form-label' %>
+    <%= f.text_field :total, :class => 'form-control' %>
+    <%=f.error_span(:total) %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :atendente_id, :class => 'form-label' %>
+    <%= f.text_field :atendente_id, :class => 'form-control' %>
+    <%=f.error_span(:atendente_id) %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :quantidade, :class => 'form-label' %>
+    <%= f.text_field :quantidade, :class => 'form-control' %>
+    <%=f.error_span(:quantidade) %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :medicamento_id, :class => 'form-label' %>
+    <%= f.text_field :medicamento_id, :class => 'form-control' %>
+    <%=f.error_span(:medicamento_id) %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :preco, :class => 'form-label' %>
+    <%= f.text_field :preco, :class => 'form-control' %>
+    <%=f.error_span(:preco) %>
   </div>
 
-  <div>
-    <%= form.label :medicamento_id, style: "display: block" %>
-    <%= form.collection_select :medicamento_id, Medicamento.all, :id, :nome %>
+  <div class="mb-3">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              vendas_path, :class => 'btn btn-secondary' %>
   </div>
 
-  <div>
-    <%= form.label :quantidade, style: "display: block" %>
-    <%= form.text_field :quantidade  %>
-  </div>
-
-  <div>
-    <%= form.submit "FINALIZAR VENDA" %>
-
-  </div>
 <% end %>

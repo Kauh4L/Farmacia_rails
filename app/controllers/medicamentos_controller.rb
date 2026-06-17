@@ -1,6 +1,6 @@
 class MedicamentosController < ApplicationController
   before_action :set_medicamento, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  
   # GET /medicamentos or /medicamentos.json
   def index
     @medicamentos = Medicamento.all
@@ -8,6 +8,31 @@ class MedicamentosController < ApplicationController
 
   # GET /medicamentos/1 or /medicamentos/1.json
   def show
+  end
+
+  #GERAR PDF  
+  def download
+    @medicamentos = Medicamento.all
+    pdf = Prawn::Document.new
+  
+    # Cabeçalho do PDF
+    pdf.text "Relatório Geral de Medicamentos", size: 24, style: :bold
+    pdf.text "Gerado em: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
+    pdf.move_down 20
+
+    # 2. Faz um laço (loop) para listar cada medicamento
+    @medicamentos.each do |medicamento|
+      # Substitua :nome e :email pelos campos reais da sua tabela de medicamentos
+      pdf.text "MEDICAMENTO:"
+      pdf.text "Nome : #{medicamento.nome}", size: 12
+      pdf.text "Preço: #{medicamento.preco} | Estoque:  #{medicamento.estoque}" 
+      pdf.stroke_horizontal_line 0, 540 # Desenha uma linha divisória discreta
+      pdf.move_down 10
+    end
+      send_data pdf.render, 
+                filename: "relatorio_geral_medicamentos.pdf", 
+                type: "application/pdf", 
+                disposition: "inline"
   end
 
   # GET /medicamentos/new

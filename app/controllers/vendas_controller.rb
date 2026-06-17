@@ -1,26 +1,35 @@
 class VendasController < ApplicationController
   before_action :set_venda, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  
   # GET /vendas or /vendas.json
   def index
     @vendas = Venda.all
   end
 
   def download
-    # 1. Cria um novo documento PDF usando o Prawn
-    pdf = Prawn::Document.new
-    
-    # 2. Escreve o conteúdo do PDF
-    pdf.text "Relatorio da Farmacia", size: 30, style: :bold
-    pdf.text "Gerado em: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
-    pdf.move_down 20
-    pdf.text "Aqui vao aparecer os dados das suas vendas e medicamentos cadastrados."
+      @vendas = Venda.all
+      pdf = Prawn::Document.new
+      # Cabeçalho do PDF
+      pdf.text "Relatório Geral de Vendas", size: 24, style: :bold
+      pdf.text "Gerado em: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
+      pdf.move_down 20
 
-    # 3. Envia o arquivo diretamente para o navegador do usuário baixar
-    send_data pdf.render, 
-              filename: "relatorio_farmacia.pdf", 
+      # 2. Faz um laço (loop) para listar cada venda
+      @vendas.each do |venda|
+        # Substitua :nome e :email pelos campos reais da sua tabela de vendas
+        pdf.text "VENDA #{venda.id}:"
+        pdf.text "ID: #{venda.id} | Atendente: #{venda.atendente.nome}", size: 12
+        pdf.text "Medicamento: #{venda.medicamento.nome} | Quantidade:  #{venda.quantidade}" 
+        pdf.text "Total: #{venda.calcular_total}"
+        pdf.stroke_horizontal_line 0, 540 # Desenha uma linha divisória discreta
+        pdf.move_down 10
+      end
+      
+      send_data pdf.render, 
+              filename: "relatorio_geral_vendas.pdf", 
               type: "application/pdf", 
-              disposition: "inline" # "inline" abre no navegador, "attachment" baixa direto
+              disposition: "inline"
+
   end
   
   # GET /vendas/1 or /vendas/1.json

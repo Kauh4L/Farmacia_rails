@@ -1,12 +1,5 @@
-<% content_for :title, "Editing venda" %>
-
-<h1>Editing venda</h1>
-
-<%= render "form", venda: @venda %>
-
-<br>
-
-<div>
-  <%= link_to "Mostrar Venda", @venda %> |
-  <%= link_to "Voltar", vendas_path %>
+<%- model_class = Venda -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
+<%= render :partial => 'form' %>

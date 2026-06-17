@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :medicamentos
   
   get "/atendentes/lista", to: "atendentes#lista", as: "lista_atendente"
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
 
   get "home/index"
   root "home#index"
-
+  get '/download', to: 'atendentes#download', as: 'download'
 
   resources :vendas
   resources :clientes

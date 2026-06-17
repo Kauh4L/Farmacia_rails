@@ -1,11 +1,28 @@
 class VendasController < ApplicationController
   before_action :set_venda, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /vendas or /vendas.json
   def index
     @vendas = Venda.all
   end
 
+  def download
+    # 1. Cria um novo documento PDF usando o Prawn
+    pdf = Prawn::Document.new
+    
+    # 2. Escreve o conteúdo do PDF
+    pdf.text "Relatorio da Farmacia", size: 30, style: :bold
+    pdf.text "Gerado em: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
+    pdf.move_down 20
+    pdf.text "Aqui vao aparecer os dados das suas vendas e medicamentos cadastrados."
+
+    # 3. Envia o arquivo diretamente para o navegador do usuário baixar
+    send_data pdf.render, 
+              filename: "relatorio_farmacia.pdf", 
+              type: "application/pdf", 
+              disposition: "inline" # "inline" abre no navegador, "attachment" baixa direto
+  end
+  
   # GET /vendas/1 or /vendas/1.json
   def show
   end

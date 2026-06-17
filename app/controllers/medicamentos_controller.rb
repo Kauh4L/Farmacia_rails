@@ -1,6 +1,6 @@
 class MedicamentosController < ApplicationController
   before_action :set_medicamento, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /medicamentos or /medicamentos.json
   def index
     @medicamentos = Medicamento.all

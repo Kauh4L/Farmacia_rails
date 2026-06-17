@@ -4,6 +4,7 @@
   <%= link_to t('.new', :default => t("helpers.links.new")),
               new_atendente_path,
               :class => 'btn btn-primary' %>
+  <%= link_to "Download PDF", download_path, class: "btn btn-primary mb-3" %>
 </div>
 
 <table class="table table-striped table-hover">
@@ -38,5 +39,6 @@
         </td>
       </tr>
     <% end %>
+  
   </tbody>
 </table>

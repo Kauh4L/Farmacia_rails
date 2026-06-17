@@ -1,6 +1,6 @@
 class AtendentesController < ApplicationController
   before_action :set_atendente, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /atendentes or /atendentes.json
   def index
     @atendentes = Atendente.all
@@ -9,6 +9,31 @@ class AtendentesController < ApplicationController
   # GET /atendentes/1 or /atendentes/1.json
   def show
   end 
+  
+# Para gerar a lista PDF 
+def download
+  @atendentes = Atendente.all
+  pdf = Prawn::Document.new
+  
+  # Cabeçalho do PDF
+  pdf.text "Relatório Geral de Atendentes", size: 24, style: :bold
+  pdf.text "Gerado em: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
+  pdf.move_down 20
+
+  # 2. Faz um laço (loop) para listar cada atendente
+  @atendentes.each do |atendente|
+    # Substitua :nome e :email pelos campos reais da sua tabela de atendentes
+    pdf.text "ID: #{atendente.id} | Nome: #{atendente.nome}", size: 12
+    pdf.text "CPF: #{atendente.cpf} | Telefone:  #{atendente.telefone}"
+    pdf.stroke_horizontal_line 0, 540 # Desenha uma linha divisória discreta
+    pdf.move_down 10
+  end
+
+  send_data pdf.render, 
+            filename: "relatorio_geral_atendentes.pdf", 
+            type: "application/pdf", 
+            disposition: "inline"
+end
 
   def lista
   @atendentes = Atendente.all

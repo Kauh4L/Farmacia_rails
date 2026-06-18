@@ -1,0 +1,13 @@
+pt-BR:
+  helpers:
+    links:
+      show: "Mostrar"
+      edit: "Editar"
+      destroy: "Excluir"
+      new: "Novo"
+  
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%d/%m/%Y"
+      long: "%d de %B de %Y às %H:%M"

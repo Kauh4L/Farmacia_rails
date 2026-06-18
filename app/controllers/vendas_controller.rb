@@ -5,6 +5,11 @@ class VendasController < ApplicationController
   def index
     @vendas = Venda.all
     @vendas = Venda.page(params[:page]).per(5)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @vendas.to_csv, filename: "vendas-#{Date.today}.csv" }
+    end
   end
 
   def download

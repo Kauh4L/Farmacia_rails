@@ -5,6 +5,11 @@ class AtendentesController < ApplicationController
   def index
     @atendentes = Atendente.all
     @atendentes = @atendentes.page(params[:page]).per(5) # Paginação com Kaminari
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @atendentes.to_csv, filename: "atendentes-#{Date.today}.csv" }
+    end
   end
 
   # GET /atendentes/1 or /atendentes/1.json

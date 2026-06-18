@@ -1,3 +1,4 @@
+
 class MedicamentosController < ApplicationController
   before_action :set_medicamento, only: %i[ show edit update destroy ]
   
@@ -5,6 +6,11 @@ class MedicamentosController < ApplicationController
   def index
     @medicamentos = Medicamento.all
     @medicamentos = Medicamento.page(params[:page]).per(5) # Paginação com Kaminari
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @medicamentos.to_csv, filename: "medicamentos-#{Date.today}.csv" }
+    end
   end
 
   # GET /medicamentos/1 or /medicamentos/1.json

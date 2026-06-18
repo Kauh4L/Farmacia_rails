@@ -4,6 +4,7 @@
   <%= link_to t('.new', :default => t("helpers.links.new")),
               new_atendente_path,
               :class => 'btn btn-primary' %>
+ <%= link_to "Download CSV", atendentes_path(format: :csv), class: "btn btn-primary" %>
   <%= link_to "Download PDF", download_atendentes_path, class: "btn btn-primary mb-3 ms-2" %>
 </div>
 

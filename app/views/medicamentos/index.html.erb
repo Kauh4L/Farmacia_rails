@@ -1,8 +1,9 @@
 <%- model_class = Medicamento -%>
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="d-flex justify-content-between align-items-center mb-4 gap-2">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   <%= link_to t('.new', :default => t("helpers.links.new")), new_medicamento_path, :class => 'btn btn-primary' %>
-  <%= link_to "Download PDF", download_medicamentos_path, class: "btn btn-primary mb-3 ms-2" %>
+  <%= link_to "Download CSV", medicamentos_path(format: :csv), class: "btn btn-primary" %>
+  <%= link_to "Download PDF", download_medicamentos_path, class: "btn btn-primary " %>
 </div>
 
 
@@ -41,14 +42,14 @@
   </tbody>
 </table>
 
+
 <%= link_to "Novo Medicamento", new_medicamento_path %>
 
 <div class="d-flex justify-content-center pt-3">
   <%= paginate @medicamentos %>
 </div>
 
-<a href="../">Voltar</a>
-
 
 <!-- link_to "Voltar", root_path -->
+
 

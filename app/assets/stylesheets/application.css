@@ -19,10 +19,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
- body {
-  background-color: #F5F4F0; 
-}
-
 .navbar-brand {
   /* Altera a fonte para Poppins (se não carregar, usa a padrão do PC) */
   font-family:'Inter', sans-serif;

@@ -4,6 +4,7 @@ class MedicamentosController < ApplicationController
   # GET /medicamentos or /medicamentos.json
   def index
     @medicamentos = Medicamento.all
+    @medicamentos = Medicamento.page(params[:page]).per(5) # Paginação com Kaminari
   end
 
   # GET /medicamentos/1 or /medicamentos/1.json

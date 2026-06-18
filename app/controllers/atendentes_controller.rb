@@ -11,6 +11,8 @@ class AtendentesController < ApplicationController
   def show
   end 
   
+
+
 # Para gerar a lista PDF 
 def download
   @atendentes = Atendente.all
@@ -99,4 +101,3 @@ end
     end
 
 end
-

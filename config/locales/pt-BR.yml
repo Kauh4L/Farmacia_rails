@@ -5,7 +5,14 @@ pt-BR:
       edit: "Editar"
       destroy: "Excluir"
       new: "Novo"
-  
+  views:
+    pagination:
+      previous: "&lt; Anterior"
+      next: "Próximo &gt;"
+      gap: "..."
+      last: "Último"
+      first: "Primeiro"
+
   time:
     formats:
       default: "%d/%m/%Y %H:%M"

@@ -16,4 +16,8 @@
 
 <%= link_to "Nova venda", new_venda_path %>
 
+<div class="d-flex justify-content-center pt-3">
+  <%= paginate @vendas %>
+</div>
+
 <%= link_to("Voltar", "../") %>

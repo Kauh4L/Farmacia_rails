@@ -4,6 +4,7 @@ class VendasController < ApplicationController
   # GET /vendas or /vendas.json
   def index
     @vendas = Venda.all
+    @vendas = Venda.page(params[:page]).per(5)
   end
 
   def download

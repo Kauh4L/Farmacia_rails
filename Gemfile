@@ -26,6 +26,8 @@ gem "jbuilder"
 #autenticação
 gem "devise"
 
+gem "csv"
+
 #gerar PDF
 gem "prawn"
 #gem "mysql2"

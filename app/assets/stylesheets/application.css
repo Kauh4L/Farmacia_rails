@@ -19,10 +19,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
- body {
-  background-color: #F5F4F0; 
-}
-
 .navbar-brand {
   /* Altera a fonte para Poppins (se não carregar, usa a padrão do PC) */
   font-family:'Inter', sans-serif;
@@ -93,13 +89,13 @@ body {
   /* Define o tamanho da fonte (ex: 42px deixa um tamanho grande e imponente) */
   font-size: 42px;
   
-  /* Define o peso da fonte (700 é o negrito bem marcante) */
+  /* Define o peso da fonte*/
   font-weight: 600;
   
-  /* Cor do texto (você pode usar a mesma paleta que escolheu para os botões!) 
+  /* Cor do texto) 
   color: #16a085; */
   
-  /* Opcional: dá um espaço extra abaixo do título para não colar no conteúdo */
+  /* dá um espaço extra abaixo do título para não colar no conteúdo */
   margin-top: 25px;
   margin-bottom: 30px; 
 }

@@ -1,9 +1,15 @@
+
 class MedicamentosController < ApplicationController
   before_action :set_medicamento, only: %i[ show edit update destroy ]
   
   # GET /medicamentos or /medicamentos.json
   def index
     @medicamentos = Medicamento.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @medicamentos.to_csv, filename: "medicamentos-#{Date.today}.csv" }
+    end
   end
 
   # GET /medicamentos/1 or /medicamentos/1.json

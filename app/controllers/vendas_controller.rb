@@ -4,6 +4,11 @@ class VendasController < ApplicationController
   # GET /vendas or /vendas.json
   def index
     @vendas = Venda.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @vendas.to_csv, filename: "vendas-#{Date.today}.csv" }
+    end
   end
 
   def download
